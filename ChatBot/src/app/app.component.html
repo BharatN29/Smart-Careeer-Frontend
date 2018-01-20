@@ -1,0 +1,79 @@
+<app-navgiation></app-navgiation>
+<router-outlet></router-outlet>
+
+
+<!-- <app-resumeupload></app-resumeupload> -->
+
+<div class="container-fluid fixed-bottom">
+    <ng-template #popContent><!--Hello, <b>{{name}}</b>!-->
+
+       <div class="panel-body">
+            <ul class="chat">
+                <li class="left clearfix alert alert-warning" role="alert">
+                    <span class="chat-img pull-left">
+                        <img src="" alt="Bot-img" class="img-circle" />
+                    </span>
+                    <div class="chat-body clearfix">
+                        <div class="header">
+                            <strong class="primary-font">Bot</strong> 
+                            <small class="pull-right text-muted">
+                                <span class="fa fa-clock-o"></span>14 mins ago
+                            </small>
+                        </div>
+                        <p>
+                            {{msg1}} 
+                        </p>
+                    </div>
+                </li>
+                <li class="right clearfix alert alert-success" role="alert"> 
+                    <span class="chat-img pull-right">
+                        <img src="" alt="User-img" class="img-circle" />
+                    </span>
+                    <div class="chat-body clearfix">
+                        <div class="header">
+                            <small class=" text-muted">
+                                <span class="fa fa-clock-o"></span>15 min ago
+                            </small>
+                            <strong class="pull-right primary-font">{{userDetails | uppercase}}</strong>
+                        </div>
+                        <p *ngFor="let hero of heroes" >
+                            {{hero}} {{robot()}} 
+                        </p>
+                    </div>
+                </li>
+
+                <hr><hr>
+
+                <li class="left clearfix" >  
+                        <!--<app-resumeupload></app-resumeupload>-->
+                </li>
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <div class="input-group">
+                <input #box id="btn-input" type="text" class="form-control input-sm" (keyup.enter)="addHero(box.value)" (blur)="addHero(box.value); box.value='' " placeholder="Type your message here..."/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning btn-sm" id="btn-chat" (click)="addHero(box.value)" onclick="formreset" onkeypress="robot" >
+                        Send</button>
+                    </span>
+            </div>
+        </div>
+
+    </ng-template>
+    <button type="button" class="btn btn-secondary popover-button" [ngbPopover]="popContent" popoverTitle="Chat Bot">
+        <strong><i class="fa fa-comments-o"></i> Chat Bot </strong>
+    </button>
+</div>
+
+<!--<div class="fixed-bottom">
+    <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" class="popover-button">
+        <ngb-panel title="Chat Bot" click="">
+            <ng-template ngbPanelContent>
+                Hello! Bharat
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>-->
+
+
+
